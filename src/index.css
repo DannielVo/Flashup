@@ -33,7 +33,7 @@
   }
 
   body {
-    @apply bg-background-dark text-white font-body antialiased;
+    @apply bg-background-light text-slate-800 font-body antialiased;
   }
 }
 
@@ -60,13 +60,11 @@
   background: #151627;
 }
 ::-webkit-scrollbar-thumb {
-  /* background: #232948; */
-  background: #43a8fc;
+  background: #5170ff;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  /* background: #3b457b; */
-  background: #1088e8;
+  background: #3b5df5;
 }
 
 /* =========================================
