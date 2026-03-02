@@ -5,7 +5,7 @@ import ChatWindow from "../components/chat/ChatWindow";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="flex bg-background-light h-screen overflow-hidden text-slate-800">
       <Sidebar />
       <Outlet />
       <ChatWindow />
