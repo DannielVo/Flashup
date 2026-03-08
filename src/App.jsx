@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
@@ -23,7 +23,7 @@ const App = () => {
 
       {/* MAIN LAYOUT */}
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Chats />} />
+        <Route index element={<Navigate to={"/chats"} replace />} />
 
         <Route element={<SubSidebarLayout />}>
           <Route path="chats" element={<Chats />} />
