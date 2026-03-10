@@ -1,10 +1,11 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 const SubSidebarLayout = () => {
+  const outletContext = useOutletContext();
+
   return (
-    <div>
-      <Outlet />
+    <div className="h-full flex flex-col">
+      <Outlet context={outletContext} />
     </div>
   );
 };
