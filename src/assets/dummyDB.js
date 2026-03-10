@@ -8,6 +8,7 @@ export const LIST_CHATS = [
     name: "Alex Rivera",
     avatar:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCnXhNAqASZSRl4KMa_GQ9_7qjyNf0CtVpomVkO1mulKN7KeuZ9a4lUdaqxeEnDNJGmOIT-d9corB8xIBE6kGN4ayBydkO5siB_JwwY6UPicZUAJc8Y_LWovUisRF25iqoekyOLcepSITFvY98Dp2hrGCcBMx47lNrjy2jmhYs14kPWB1wKennc9wNzpz3oYJyo4Bcz9vNOGwTE2OoiTDmlvhfCP1Djgj9C4Lf6iBGTtPM4DGJ6bBmETskAwIMHj34NamGyrEpkDim2",
+    initials: assets.default_avatar,
     message: "The files are ready for review...",
     time: "10:24 AM",
     online: true,
@@ -30,6 +31,7 @@ export const LIST_CHATS = [
     name: "Sarah Jenkins",
     avatar:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAv92mOTg4uqLOaBJyZvqzIWBTRts6i72t_mf_TB4apXqwoxlMK1zOh0GEwroP1FwTNZt9SYKSlJrGEsSpbesWDIZ8ZiDBNHjWMdHhfkygvqDenJAu_usq2Wc-ZWijzymYPHVIwRPsH_SOcBm11xT5kxD3ZnT5uWeV2c0-XbJSueeBSpi5eLQiYpEdje81XvajoTyG51Q2P5cSgazxd9EmRk_MhyltqLBgU673d0juOIXaqj22XVytH91nxoMPSupvTwoMowz5YJSDQ",
+    initials: assets.default_avatar,
     message: "Meeting moved to Friday at 2PM.",
     time: "Yesterday",
     online: false,
@@ -41,6 +43,7 @@ export const LIST_CHATS = [
     name: "Marcus Chen",
     avatar:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuByaAUl9VaP98wZMS4x6rIDPTNssV0tWvCa36a_sg9HP-6zXVu4lkKky0DP47BLLHK--A1EQY2B4aGrYx-1Qrua2HJG4JaOrtYw10jLGt6ZnT_3__fnRpuQ_fAhzpWMx9zgFhmUQ6xeFmIBbWULCH23WeeI9blsBR4fkGHe7MaP4cr0kSOia-KrC_eXVB5CqhegPE4Ip7McQmyATpniHZyflIhDpKcdLTEFfCIceHgIy6Ly30q90DpiZKeQnY-_700OGpyoJuI4NRBj",
+    initials: assets.default_avatar,
     message: "I've pushed the latest fixes to main branch.",
     time: "Yesterday",
     online: false,
@@ -52,6 +55,7 @@ export const LIST_CHATS = [
     name: "Jordan Smith",
     avatar:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBVsqQE4E3jtLjZYrtcL4xvFW0TOaFfe-9hvleXnx6PnyTbNDVjqQaxtdtPYTvc7DAjO-wNgDzIlX4eaUQJdqwJNzbSADbq7pXCjCcAaG4cw4q5Z-yKeXC9FzctlHtkoJMAqqd1hs7PuztjJKFIKJAU01EJhV-kE9fkGvzeLlBFuJGyjwmdThKj6FHyDFzKLgjD58j4sWbEm48TW01vNk_LuNqLVqGPGul-sO6KBOhYMaNZSgPSLwM9tHoS0rbjs6-FabPNFMJX0fzd",
+    initials: assets.default_avatar,
     message: "Let's connect next week.",
     time: "Oct 24",
     online: true,
