@@ -3,8 +3,12 @@ import { assets, sidebarItems } from "../../assets/assets";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const handleLogout = () => {
+    alert("Logging out...");
+  };
+
   return (
-    <div className="w-20 flex flex-col py-8 items-center border-r border-slate-200 z-20">
+    <div className="hidden lg:flex w-20 flex-col py-8 items-center border-r border-slate-200 z-20 bg-white">
       {/* Logo */}
       <div className="mb-10">
         <img
@@ -34,6 +38,7 @@ const Sidebar = () => {
 
       {/* Logout */}
       <button
+        onClick={handleLogout}
         title="Logout"
         className="w-12 h-12 flex justify-center items-center rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-100 transition-all duration-300 cursor-pointer"
       >
