@@ -1,8 +1,9 @@
-import mainLogo from "./20-transparent.png";
+import mainLogo from "./main_logo.png";
+import subLogo from "./sub_logo.png";
 import default_avatar from "./default_avt.jpg";
 import avatar_user from "./avatar_user.png";
 
-export const assets = { mainLogo, default_avatar, avatar_user };
+export const assets = { mainLogo, default_avatar, avatar_user, subLogo };
 
 export const sidebarItems = [
   {
