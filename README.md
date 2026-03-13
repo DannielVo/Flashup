@@ -1,16 +1,52 @@
-# React + Vite
+# Flashup - Web App Chat (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Flashup is a **web-based chat application**, developed as the frontend part of the Flashup Messaging Platform.
+This frontend focuses on real-time communication, conversation management, and modern chat interface design using React with JavaScript.
 
-Currently, two official plugins are available:
+The main goals of the frontend are:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Provide a smooth and intuitive real-time messaging experience
+- Manage conversations, messages, and UI state in a clean and maintainable way
+- Build a modern chat interface similar to popular messaging platforms
+- Apply good frontend architecture and reusable component design
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React.js (JavaScript)
+- **Styling**: Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Project Structure
+
+```bash
+frontend/
+├── public/             # Static files and root HTML
+├── src/
+│   ├── assets/         # Images and static assets
+│   ├── components/     # Reusable UI components
+│   ├── hooks/          # Custom React hooks (state management, reusable logic)
+│   ├── layouts/        # Layout components
+│   ├── pages/          # Main pages (Login, SignUp, Chat, ...)
+│   ├── App.jsx         # Root component
+│   └── main.jsx        # Application entry point
+├── package.json        # Project metadata and dependencies
+└── README.md           # Project documentation
+```
+
+## Getting Started
+
+1. **Install dependencies:**
+
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **Run the application:**
+
+   ```bash
+   npm run dev
+   ```
