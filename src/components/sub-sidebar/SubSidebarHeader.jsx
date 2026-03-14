@@ -10,11 +10,11 @@ const SubSidebarHeader = ({ title, content, actions }) => {
         <h1 className="text-2xl font-bold text-slate-900">{title}</h1>
 
         {/* <!-- Right actions --> */}
-        <div className="flex items-center gap-2">
-          {/* <!-- slot actions --> */}
+        <div className="flex items-center gap-3">
+          {/* <!-- More Actions --> */}
           {actions}
 
-          {/* <!-- hamburger --> */}
+          {/* <!-- Hamburger menu --> */}
           <button
             onClick={toggleMobileNav}
             className="lg:hidden flex items-center justify-center rounded-lg hover:bg-slate-200 transition"
@@ -24,7 +24,7 @@ const SubSidebarHeader = ({ title, content, actions }) => {
         </div>
       </div>
 
-      {/* <!-- optional content (search, tabs...) --> */}
+      {/* <!-- Optional content (search, tabs...) --> */}
       {content}
     </div>
   );
