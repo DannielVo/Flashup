@@ -1,4 +1,48 @@
+import { useEffect, useState } from "react";
+import { LIST_CHATS } from "../../assets/dummyDB";
+
 const AddGroupModal = ({ isOpen, onClose }) => {
+  const [visibleUsers, setVisibleUsers] = useState([]);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const INITIAL_COUNT = 5;
+
+  const filterUsers = LIST_CHATS.filter((chat) =>
+    chat.name.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  useEffect(() => {
+    const firstUsers = LIST_CHATS.slice(0, INITIAL_COUNT);
+    setVisibleUsers(firstUsers);
+    setPage(1);
+    setHasMore(LIST_CHATS.length > INITIAL_COUNT);
+  }, []);
+
+  const userToShow = search.trim() ? filterUsers : visibleUsers;
+
+  const handleScroll = (e) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.target;
+
+    const isBottom = scrollHeight - scrollTop <= clientHeight + 10;
+
+    if (isBottom && hasMore) {
+      loadMoreUsers();
+    }
+  };
+
+  const loadMoreUsers = () => {
+    const nextPage = page + 1;
+    const nextUsers = LIST_CHATS.slice(0, nextPage * INITIAL_COUNT);
+
+    setVisibleUsers(nextUsers);
+    setPage(nextPage);
+
+    if (nextUsers.length >= LIST_CHATS.length) {
+      setHasMore(false);
+    }
+  };
+
   return (
     <div
       className={`fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
@@ -28,55 +72,37 @@ const AddGroupModal = ({ isOpen, onClose }) => {
               className="w-full bg-slate-100 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:border-primary focus:ring-2 focus:ring-primary outline-none"
               placeholder="Search friends..."
               type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
-        <div className="flex-1 overflow-y-auto px-6 space-y-4 pb-6">
+        <div
+          onScroll={handleScroll}
+          className="flex-1 overflow-y-auto px-6 space-y-4 pb-6"
+        >
           <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
             Suggested Friends
           </p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img
-                alt="User"
-                className="w-10 h-10 rounded-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnXhNAqASZSRl4KMa_GQ9_7qjyNf0CtVpomVkO1mulKN7KeuZ9a4lUdaqxeEnDNJGmOIT-d9corB8xIBE6kGN4ayBydkO5siB_JwwY6UPicZUAJc8Y_LWovUisRF25iqoekyOLcepSITFvY98Dp2hrGCcBMx47lNrjy2jmhYs14kPWB1wKennc9wNzpz3oYJyo4Bcz9vNOGwTE2OoiTDmlvhfCP1Djgj9C4Lf6iBGTtPM4DGJ6bBmETskAwIMHj34NamGyrEpkDim2"
+          {userToShow.map((chat) => (
+            <div
+              key={`user-${chat.id}`}
+              className="flex items-center justify-between"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  alt={chat.name}
+                  className="w-10 h-10 rounded-full"
+                  src={chat.avatar ? chat.avatar : chat.initials}
+                />
+                <span className="font-medium text-slate-900 ">{chat.name}</span>
+              </div>
+              <input
+                className="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary"
+                type="checkbox"
               />
-              <span className="font-medium text-slate-900 ">Alex Rivera</span>
             </div>
-            <input
-              className="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary"
-              type="checkbox"
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img
-                alt="User"
-                className="w-10 h-10 rounded-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv92mOTg4uqLOaBJyZvqzIWBTRts6i72t_mf_TB4apXqwoxlMK1zOh0GEwroP1FwTNZt9SYKSlJrGEsSpbesWDIZ8ZiDBNHjWMdHhfkygvqDenJAu_usq2Wc-ZWijzymYPHVIwRPsH_SOcBm11xT5kxD3ZnT5uWeV2c0-XbJSueeBSpi5eLQiYpEdje81XvajoTyG51Q2P5cSgazxd9EmRk_MhyltqLBgU673d0juOIXaqj22XVytH91nxoMPSupvTwoMowz5YJSDQ"
-              />
-              <span className="font-medium text-slate-900 ">Sarah Jenkins</span>
-            </div>
-            <input
-              className="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary"
-              type="checkbox"
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img
-                alt="User"
-                className="w-10 h-10 rounded-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByaAUl9VaP98wZMS4x6rIDPTNssV0tWvCa36a_sg9HP-6zXVu4lkKky0DP47BLLHK--A1EQY2B4aGrYx-1Qrua2HJG4JaOrtYw10jLGt6ZnT_3__fnRpuQ_fAhzpWMx9zgFhmUQ6xeFmIBbWULCH23WeeI9blsBR4fkGHe7MaP4cr0kSOia-KrC_eXVB5CqhegPE4Ip7McQmyATpniHZyflIhDpKcdLTEFfCIceHgIy6Ly30q90DpiZKeQnY-_700OGpyoJuI4NRBj"
-              />
-              <span className="font-medium text-slate-900 ">Marcus Chen</span>
-            </div>
-            <input
-              className="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary"
-              type="checkbox"
-            />
-          </div>
+          ))}
         </div>
         <div className="p-6 border-t border-slate-100 flex justify-end gap-3 bg-slate-50">
           <button
