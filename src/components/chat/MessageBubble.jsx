@@ -6,15 +6,36 @@ const MessageBubble = ({ type, message, isOwner, chat }) => {
     ? "flex justify-end"
     : "flex items-start gap-3 max-w-[70%]";
 
+  const renderStatusIcon = (status) => {
+    switch (status) {
+      case "sending":
+        return (
+          <span className="material-symbols-outlined text-[14px] text-slate-400">
+            schedule
+          </span>
+        );
+
+      case "sent":
+        return (
+          <span className="material-symbols-outlined text-[14px] text-slate-400">
+            done
+          </span>
+        );
+
+      case "seen":
+        return (
+          <span className="material-symbols-outlined text-[14px] text-primary">
+            done_all
+          </span>
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
-      {/* Date Separator */}
-      <div className="flex justify-center">
-        <span className="bg-slate-200/50 text-slate-500 dark:text-slate-400 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-          Today
-        </span>
-      </div>
-
       <div className={containerClass}>
         {!isOwner && (
           <img
@@ -84,13 +105,8 @@ const MessageBubble = ({ type, message, isOwner, chat }) => {
             <span className="text-[10px] text-slate-400 mt-1 inline-block">
               {message.time}
             </span>
-            <span className="material-symbols-outlined text-[14px] text-primary">
-              done_all
-            </span>
+            {isOwner && renderStatusIcon(message.status)}
           </div>
-          {/* <span className="text-[10px] text-slate-400 mt-1 inline-block">
-          {message.time}
-        </span> */}
         </div>
       </div>
     </>
